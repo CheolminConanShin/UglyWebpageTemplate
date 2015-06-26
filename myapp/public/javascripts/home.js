@@ -1,0 +1,3 @@
+var initHomeTab = function(){
+	$("#home");
+}

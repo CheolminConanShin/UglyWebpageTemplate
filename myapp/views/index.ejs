@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="/javascripts/home.js"></script>
+</head>
+<script>
+	$(document).ready(function(){
+		$('#myTabs a').click(function (e) {
+			$(this).tab('show');
+			switch (e.target.text){
+				case "Home" :
+					initHomeTab();
+					break;
+			}
+		})
+	});
+</script>
+<body>
+<div>
+  <!-- Nav tabs -->
+	<ul id="myTabs" class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+		<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+		<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+		<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+	  <div role="tabpanel" class="tab-pane fade in active" id="home">1</div>
+	  <div role="tabpanel" class="tab-pane fade" id="profile">2</div>
+	  <div role="tabpanel" class="tab-pane fade" id="messages">3</div>
+	  <div role="tabpanel" class="tab-pane fade" id="settings">4</div>
+	</div>
+
+</div>
+</body>
+</html>
