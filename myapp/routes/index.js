@@ -9,7 +9,8 @@ var i18n = require('i18n');
 
 /* GET home page. */
 router.get('/', mmFn.ensureAuthenticated, function(req, res, next) {
-  res.render('index');
+ 	console.log("inside router");
+ 	res.redirect('/index');
 });
 
 router.get('/login', function(req, res, next){
@@ -19,13 +20,18 @@ router.get('/login', function(req, res, next){
 
 router.post('/login.do', passport.authenticate('login', {failureRedirect: '/login', failureFlash: true}), function(req, res, next){
 	res.cookie('lang', req.user.lang);
-	res.render('index', {user: req.user});
+	res.redirect('/index');
 });
 
 router.get('/logout', function(req, res, next){
 	req.session.destroy();
 	req.logout();
 	res.render('login');
+});
+
+router.get('/index', mmFn.ensureAuthenticated, function(req, res, next){
+	console.log("inside index router");
+	res.render('index', {user: req.user});
 });
 
 router.get('/home', mmFn.ensureAuthenticated, function(req, res, next) {
